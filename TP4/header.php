@@ -14,16 +14,30 @@
       <li class="nav-item">
         <a class="nav-link" href="#">Features</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
-      </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" placeholder="Search" type="text">
-      <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+    <form class="form-inline my-2 my-lg-0" action="" method="POST">
+        <div class="form-group mr-auto">
+            <label for="login" >Login</label>
+            <input
+            name="login"
+            type="text"
+            class="form-control <?php if (isset($errors['login'])) { echo 'is-invalid';} ?>"
+            id="login"
+            placeholder="Enter login"
+            value="<?php if(isset($_POST['login'])) { echo $_POST['login'];} ?>"
+            >
+        </div>
+        <div class="form-group mr-auto">
+            <label for="password2" >Password</label>
+            <input
+            type="password"
+            name="password2"
+            class="form-control <?php if(isset($errors['password2'])){ echo 'is-invalid';}?>"
+            id="password2"
+            placeholder="Password">
+            <?php if (isset($errors['password2'])) { echo checkError($errors['password2']); } ?>
+        </div>
+        <input type="submit" name="submit2" value="Sign in">
     </form>
   </div>
 </nav>
